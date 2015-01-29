@@ -20,58 +20,106 @@ class UserTypes {
 
     public static  $ManagerIndustrialPages = array("industrial");
 
-    protected $menuAdmin = [];
-
-    protected $menuBuh = [];
-
-    protected $controller;
-
     public function __construct($controller) {
         $this->controller = $controller;
     }
 
     public function getMenuAdmin() {
-        return array_merge($this->getMenuBuh(), $this->common());
+        return array_merge($this->getBank(),
+                           $this->getWorker(),
+                           $this->getRaw(),
+                           $this->getNeedRaw(),
+                           $this->getCustomer(),
+                           $this->getDelivery(),
+                           $this->getEquipment(),
+                           $this->getIndustrialProcess(),
+                           $this->getOrder(),
+                           $this->getProduct(),
+                           $this->getSupplier()
+        );
     }
 
     public function getMenuBuh() {
-        return array_merge($this->menuManagerIndustrial(),
-               $this->menuManagerSells(),
-               $this->menuManagerOrders(),
-               [['Банки' => URL . $this->controller . '/banks'], ['Працівники' => URL . $this->controller . '/workers']]);
+        return array_merge($this->getBank(),
+                        $this->getWorker(),
+                        $this->getCustomer(),
+                        $this->getDelivery(),
+                        $this->getEquipment(),
+                        $this->getOrder(),
+                        $this->getSupplier()
+        );
     }
-
+    // Замовники. Замовлення
     public function getMenuManagerOrders() {
-        return $this->menuManagerOrders();
-    }
-    public function menuManagerOrders() {
-        return [['Поставки' => ''], ['Постачальники' => '']];
+        return array_merge($this->getBank(),
+                        $this->getRaw(),
+                        $this->getNeedRaw(),
+                        $this->getCustomer(),
+                        $this->getOrder(),
+                        $this->getProduct()
+        );
     }
 
+    // Постачальнки. Поставки
     public function getMenuManagerSells() {
-        return $this->menuManagerSells();
-    }
-
-    public function menuManagerSells() {
-        return [
-                ['Замовлення' => URL . $this->controller . '/orders'],
-                ['Замовники' => URL . $this->controller . '/customers']
-               ];
+        return array_merge($this->getBank(),
+                        $this->getDelivery(),
+                        $this->getProduct(),
+                        $this->getSupplier()
+        );
     }
 
     public function getMenuManagerIndustrial() {
-        return array_merge($this->menuManagerIndustrial(), $this->common());
-    }
-    public function menuManagerIndustrial() {
-        return [
-                ['Продукція' => URL . $this->controller . '/products'],
-                ['Сировина' => URL . $this->controller . '/raws'],
-                ['Потреба в сировині' => URL . $this->controller . '/needRaw'],
-                ['Обладнання' => URL . $this->controller . '/equipments']
-             ];
+        return array_merge(
+            $this->getProduct(),
+            $this->getRaw(),
+            $this->getNeedRaw(),
+            $this->getEquipment(),
+            $this->getIndustrialProcess()
+        );
     }
 
-    public function common() {
+    private function getBank() {
+        return [['Банки' => URL . $this->controller . '/banks']];
+    }
+
+    private function getWorker() {
+        return [['Працівники' => URL . $this->controller . '/workers']];
+    }
+
+    private function getDelivery() {
+        return [['Поставки' => '']];
+    }
+
+    private function getSupplier() {
+        return [['Постачальники' => '']];
+    }
+
+    private function getOrder() {
+        return [['Замовлення' => URL . $this->controller . '/orders']];
+    }
+
+    private function getCustomer() {
+        return [['Замовники' => URL . $this->controller . '/customers']];
+    }
+
+    private function getProduct() {
+        return [['Продукція' => URL . $this->controller . '/products']];
+    }
+
+    private function getRaw() {
+        return [['Сировина' => URL . $this->controller . '/raws']];
+    }
+
+    private function getNeedRaw() {
+        return [['Потреба в сировині' => URL . $this->controller . '/needRaw']];
+    }
+
+    private function getEquipment() {
+        return [['Обладнання' => URL . $this->controller . '/equipments']];
+    }
+
+    private function getIndustrialProcess() {
         return [['Виробничі процеси' => URL . $this->controller . '/industrialProcess']];
     }
 }

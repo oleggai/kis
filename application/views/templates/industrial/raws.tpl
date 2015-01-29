@@ -1,5 +1,10 @@
 {extends file="layouts/main.tpl"}
 {block name='content'}
+
+{block name='form-raw'}
+
+{/block}
+
     <table class="tg">
         <tr>
             <th class="tg-izya">ID Raw</th>

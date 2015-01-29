@@ -103,9 +103,30 @@ class IndustrialController extends Controller {
     }
 
     public function raws() {
+        if($_SERVER["REQUEST_METHOD"] == 'POST') {
+            // save
+            if(empty($_POST['name'])) {
+                $this->smarty->assign('error', 'Будь-ласка! Верніться і заповніть всі поля.');
+            }
+            else {
+
+                $raw = new Raw();
+                try{
+                    $raw->setName($_POST['name']);
+                    $this->em->persist($raw);
+                    $this->em->flush();
+
+                    $this->smarty->assign('success', 'Сировина успішно збережена!');
+                }
+                catch(Exception $e) {
+                    $this->smarty->assign('error', 'Не вдалось зберегти сировину');
+                }
+            }
+
+        }
         $raws = $this->common->getRaw();
         $this->smarty->assign('raws', $raws);
-        $this->smarty->display('industrial/raws.tpl');
+        $this->smarty->display('industrial/form-raws.tpl');
     }
 
     public function industrialProcess() {
