@@ -1,0 +1,44 @@
+{extends file="layouts/main.tpl"}
+{block name='content'}
+
+    {block name='form-equipments'}
+
+    {/block}
+
+    <table class="tg">
+        <tr>
+            <th class="tg-izya">ID Обладнання</th>
+            <th class="tg-izya">Найменування</th>
+            <th class="tg-izya">Бренд</th>
+            <th class="tg-izya">Кількість</th>
+            <th class="tg-izya">Вартість</th>
+            <th class="tg-izya">Дата придбання</th>
+            <th class="tg-izya">Дата закінчення служби</th>
+        </tr>
+        {foreach $equipments as $equipment}
+            <tr>
+                <td class="tg-s6z2" style="width: 20%;">
+                    {$equipment->getIdEquipment()}
+                </td>
+                <td class="tg-s6z2">
+                    <span class="td-table">{$equipment->getName()}</span>
+                </td>
+                <td class="tg-s6z2">
+                    <span class="td-table">{$equipment->getBrand()}</span>
+                </td>
+                <td class="tg-s6z2">
+                    <span class="td-table">{$equipment->getCount()}</span>
+                </td>
+                <td class="tg-s6z2">
+                    <span class="td-table">{$equipment->getCost()} грн</span>
+                </td>
+                <td class="tg-s6z2">
+                    <span class="td-table">{$equipment->getBuyDate()->format('Y-m-d H:i:s')}</span>
+                </td>
+                <td class="tg-s6z2">
+                    <span class="td-table">{$equipment->getExpireDate()->format('Y-m-d H:i:s')}</span>
+                </td>
+            </tr>
+        {/foreach}
+    </table>
+{/block}

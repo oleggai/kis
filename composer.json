@@ -1,0 +1,10 @@
+{
+    "require": {
+        "doctrine/orm": "2.4.*"
+    },
+    "autoload": {
+        "classmap": ["application/core/", "application/controllers/", "application/entity", "application/repository"],
+        "files": ["application/config/config.php"]
+    }
+
+}
