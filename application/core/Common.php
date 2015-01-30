@@ -48,4 +48,12 @@ class Common {
     public function getIndustrialProcess() {
         return $this->em->getRepository('Industrialprocess')->findBy(array(), array('date' => 'DESC'));
     }
+
+    public function getDelivery() {
+        return $this->em->getRepository('Delivery')->findBy(array(), array('date' => 'DESC'));
+    }
+
+    public function getSuppliers() {
+        return $this->em->getRepository('Supplier')->findAll();
+    }
 }

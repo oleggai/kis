@@ -85,6 +85,15 @@ class Controller
             case 'workers':
                 $this->smarty->assign('breadcrumbs',"Працівники");
                 break;
+            case 'banks':
+                $this->smarty->assign('breadcrumbs',"Банки");
+                break;
+            case 'deliveries':
+                $this->smarty->assign('breadcrumbs',"Поставки");
+                break;
+            case 'suppliers':
+                $this->smarty->assign('breadcrumbs',"Постачальники");
+                break;
             default:
         }
     }

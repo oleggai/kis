@@ -42,22 +42,22 @@ class UserTypes {
     public function getMenuBuh() {
         return array_merge($this->getBank(),
                         $this->getWorker(),
-                        $this->getCustomer(),
+                       // $this->getCustomer(),
                         $this->getOrder(),
                         $this->getDelivery(),
-                        $this->getSupplier(),
+                        //$this->getSupplier(),
                         $this->getEquipment()
         );
     }
     // Замовники. Замовлення
     public function getMenuManagerOrders() {
         return array_merge(
+                        $this->getProduct(),
                         $this->getCustomer(),
                         $this->getOrder(),
-                        $this->getBank(),
-                        $this->getRaw(),
-                        $this->getNeedRaw(),
-                        $this->getProduct()
+                        //$this->getBank(),
+                        //$this->getRaw(),
+                        $this->getNeedRaw()
         );
     }
 
@@ -65,9 +65,9 @@ class UserTypes {
     public function getMenuManagerSells() {
         return array_merge(
                         $this->getProduct(),
-                        $this->getBank(),
-                        $this->getSupplier(),
-                        $this->getDelivery()
+                        //$this->getBank(),
+                        $this->getDelivery(),
+                        $this->getSupplier()
         );
     }
 
@@ -91,11 +91,11 @@ class UserTypes {
     }
 
     private function getDelivery() {
-        return [['Поставки' => '']];
+        return [['Поставки' => URL . $this->controller . '/deliveries']];
     }
 
     private function getSupplier() {
-        return [['Постачальники' => '']];
+        return [['Постачальники' => URL . $this->controller . '/suppliers']];
     }
 
     private function getOrder() {

@@ -9,7 +9,7 @@
 class AdminController extends Controller {
 
     public function __construct($em, $nameController, $nameAction) {
-        $userType = new UserTypes('admin');
+        $userType = new UserTypes($nameController);
         $this->menus = $userType->getMenuAdmin();
         parent::__construct($em, $nameController, $nameAction);
     }

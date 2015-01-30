@@ -47,7 +47,7 @@
     <div class="navbar-collapse collapse" style="height: 1px; float: right; width: 170px; height:70px; position: relative; margin-top:13px;">
         <a class="dropdown-toggle" style="color: white; line-height: 20px;" >Привет
             {assign user $smarty.session.user}
-            {$user->getName()}
+            {$user->getLogin()}
         </a>
         <a href="{$smarty.const.URL}logout" class="dropdown-toggle hover_out" style="color: white; line-height: 20px; float: right;" >Выход</a>
     </div>

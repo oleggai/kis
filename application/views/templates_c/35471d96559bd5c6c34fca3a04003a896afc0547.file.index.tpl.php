@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-01-28 21:33:26
+<?php /* Smarty version Smarty-3.1.18, created on 2015-01-30 15:26:35
          compiled from ".\application\views\templates\admin\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:179354c7b9e6388cb3-36271555%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4f4fdad1c983ba8b6707dd5a44c9213031989f67' => 
     array (
       0 => '.\\application\\views\\templates\\layouts\\main.tpl',
-      1 => 1422445823,
+      1 => 1422627993,
       2 => 'file',
     ),
   ),
@@ -90,7 +90,7 @@ public/css/admin/bootstrap/premium.css">
     <div class="navbar-collapse collapse" style="height: 1px; float: right; width: 170px; height:70px; position: relative; margin-top:13px;">
         <a class="dropdown-toggle" style="color: white; line-height: 20px;" >Привет
             <?php $_smarty_tpl->tpl_vars['user'] = new Smarty_variable($_SESSION['user'], null, 0);?>
-            <?php echo $_smarty_tpl->tpl_vars['user']->value->getName();?>
+            <?php echo $_smarty_tpl->tpl_vars['user']->value->getLogin();?>
 
         </a>
         <a href="<?php echo @constant('URL');?>

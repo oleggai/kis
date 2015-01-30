@@ -1,10 +1,5 @@
 {extends file="layouts/main.tpl"}
 {block name='content'}
-
-    {block name='form-orders'}
-
-    {/block}
-
     <table class="tg">
         <tr>
             <th class="tg-izya">ID Замовлення</th>
