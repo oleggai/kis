@@ -15,7 +15,13 @@ class BuhController extends Controller {
     }
 
     public function index() {
-        $this->banks();
+        $this->products();
+    }
+
+    public function products() {
+        $products = $this->common->getProducts();
+        $this->smarty->assign('products', $products);
+        $this->smarty->display('admin/index.tpl');
     }
 
     public function banks() {

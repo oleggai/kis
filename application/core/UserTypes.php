@@ -40,7 +40,8 @@ class UserTypes {
     }
 
     public function getMenuBuh() {
-        return array_merge($this->getBank(),
+        return array_merge($this->getProduct(),
+                        $this->getBank(),
                         $this->getWorker(),
                        // $this->getCustomer(),
                         $this->getOrder(),
