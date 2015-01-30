@@ -175,4 +175,34 @@ class IndustrialController extends Controller {
             ]);
         $this->smarty->display('industrial/form-industrial-process.tpl');
     }
+
+    public function workers() {
+
+        if($_SERVER["REQUEST_METHOD"] == 'POST') {
+            // save
+            if(empty($_POST['name']) || empty($_POST['experience'])) {
+                $this->smarty->assign('error', 'Будь-ласка! Верніться і заповніть всі поля.');
+            }
+            else {
+
+                $worker = new Worker();
+                try{
+                    $worker->setFullname($_POST['name'])
+                        ->setExperience($_POST['experience']);
+                    $this->em->persist($worker);
+                    $this->em->flush();
+
+                    $this->smarty->assign('success', 'Дані успішно збережені!');
+                }
+                catch(Exception $e) {
+                    $this->smarty->assign('error', 'Не вдалось зберегти дані');
+                }
+            }
+
+        }
+
+        $workers = $this->common->getWorkers();
+        $this->smarty->assign('workers', $workers);
+        $this->smarty->display('industrial/form-workers.tpl');
+    }
 }

@@ -25,17 +25,17 @@ class UserTypes {
     }
 
     public function getMenuAdmin() {
-        return array_merge($this->getBank(),
-                           $this->getWorker(),
+        return array_merge($this->getProduct(),
+                           $this->getBank(),
+                           $this->getCustomer(),
+                           $this->getOrder(),
+                           $this->getDelivery(),
+                           $this->getSupplier(),
                            $this->getRaw(),
                            $this->getNeedRaw(),
-                           $this->getCustomer(),
-                           $this->getDelivery(),
                            $this->getEquipment(),
-                           $this->getIndustrialProcess(),
-                           $this->getOrder(),
-                           $this->getProduct(),
-                           $this->getSupplier()
+                           $this->getWorker(),
+                           $this->getIndustrialProcess()
         );
     }
 
@@ -43,29 +43,31 @@ class UserTypes {
         return array_merge($this->getBank(),
                         $this->getWorker(),
                         $this->getCustomer(),
-                        $this->getDelivery(),
-                        $this->getEquipment(),
                         $this->getOrder(),
-                        $this->getSupplier()
+                        $this->getDelivery(),
+                        $this->getSupplier(),
+                        $this->getEquipment()
         );
     }
     // Замовники. Замовлення
     public function getMenuManagerOrders() {
-        return array_merge($this->getBank(),
-                        $this->getRaw(),
-                        $this->getNeedRaw(),
+        return array_merge(
                         $this->getCustomer(),
                         $this->getOrder(),
+                        $this->getBank(),
+                        $this->getRaw(),
+                        $this->getNeedRaw(),
                         $this->getProduct()
         );
     }
 
     // Постачальнки. Поставки
     public function getMenuManagerSells() {
-        return array_merge($this->getBank(),
-                        $this->getDelivery(),
+        return array_merge(
                         $this->getProduct(),
-                        $this->getSupplier()
+                        $this->getBank(),
+                        $this->getSupplier(),
+                        $this->getDelivery()
         );
     }
 
@@ -75,6 +77,7 @@ class UserTypes {
             $this->getRaw(),
             $this->getNeedRaw(),
             $this->getEquipment(),
+            $this->getWorker(),
             $this->getIndustrialProcess()
         );
     }

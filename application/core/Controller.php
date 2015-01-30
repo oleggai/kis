@@ -82,6 +82,9 @@ class Controller
             case 'industrialProcess':
                 $this->smarty->assign('breadcrumbs',"Виробничі процеси");
                 break;
+            case 'workers':
+                $this->smarty->assign('breadcrumbs',"Працівники");
+                break;
             default:
         }
     }
